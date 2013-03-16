@@ -1,8 +1,10 @@
-#include <iostream>
+#include "command_dispatcher.h"
 
 int main(int argc, char** argv)
 {
-  std::cout << "Hello world!" << std::endl;
+  CommandDispatcher dispatcher;
+
+  dispatcher.dispatch(argc, argv);
 
   return 0;
 }

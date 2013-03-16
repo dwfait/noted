@@ -1,11 +1,12 @@
 CPP_FILES := $(wildcard src/*.cpp)
 OBJ_FILES := $(addprefix obj/,$(notdir $(CPP_FILES:.cpp=.o)))
-CC_FLAGS := -Wall -Wextra -pedantic -std=c++11 -I../shared/
-GXX := /usr/local/Cellar/gcc/4.7.2/bin/g++-4.7
+CC_FLAGS := -Wall -Wextra -pedantic
+LD_FLAGS := -lboost_program_options-mt
+GXX := g++
 
 bin/noted: $(OBJ_FILES)
 	mkdir -p bin
-	$(GXX) -o $@ $^
+	$(GXX) -o $@ $^ $(LD_FLAGS)
 
 obj/%.o: src/%.cpp
 	mkdir -p obj
