@@ -28,6 +28,8 @@ class Command
 
   private:
     void parse_options(int argc, char** argv);
+    void print_help_text();
+
     std::string name;
     std::string description;
 };

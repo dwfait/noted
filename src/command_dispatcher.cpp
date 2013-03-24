@@ -1,7 +1,7 @@
 #include "command_dispatcher.h"
 
 #include "note_command.h"
-#include "init_command.h"
+#include "folder_command.h"
 
 
 #include <iostream>
@@ -10,10 +10,10 @@
 CommandDispatcher::CommandDispatcher()
 {
   CommandPtr note(new NoteCommand);
-  CommandPtr init(new InitCommand);
+  CommandPtr folder(new FolderCommand);
 
   add_command(note);
-  add_command(init);
+  add_command(folder);
 }
 
 void CommandDispatcher::add_command(CommandPtr command)
@@ -51,7 +51,7 @@ std::string CommandDispatcher::build_default_text()
 {
   std::stringstream txt;
 
-  txt << "Noted - a badly named note taking helper." << std::endl;
+  txt << "Noted - a badly named command line note taking helper." << std::endl;
   txt << std::endl;
 
   txt << available_commands_text();

@@ -1,17 +1,18 @@
-#ifndef __INIT_COMMAND__H
-#define __INIT_COMMAND__H
+#ifndef __FOLDER_COMMAND__H
+#define __FOLDER_COMMAND__H
 
 #include "command.h"
 
-class InitCommand : public Command
+class FolderCommand : public Command
 {
   public:
-    InitCommand();
+    FolderCommand();
 
     virtual void run();
 
   protected:
     virtual void setup_options();
+
 };
 
 #endif

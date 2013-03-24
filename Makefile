@@ -1,7 +1,7 @@
 CPP_FILES := $(wildcard src/*.cpp)
 OBJ_FILES := $(addprefix obj/,$(notdir $(CPP_FILES:.cpp=.o)))
 CC_FLAGS := -Wall -Wextra -pedantic
-LD_FLAGS := -lboost_program_options-mt
+LD_FLAGS := -lboost_program_options-mt -lboost_filesystem-mt -lboost_system-mt
 GXX := g++
 
 bin/noted: $(OBJ_FILES)

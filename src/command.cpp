@@ -8,7 +8,12 @@ Command::Command(std::string name, std::string description)
 void Command::execute(int argc, char** argv)
 {
   parse_options(argc, argv);
-  run();
+
+  if (vm.count("help")) {
+    print_help_text();
+  } else {
+    run();
+  }
 }
 
 void Command::parse_options(int argc, char** argv)
@@ -40,4 +45,10 @@ std::string Command::get_name()
 std::string Command::get_description()
 {
   return description;
+}
+
+void Command::print_help_text()
+{
+  std::cout << get_description() << std::endl;
+  std::cout << desc << std::endl;
 }
