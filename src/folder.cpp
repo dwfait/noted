@@ -47,8 +47,18 @@ void Folder::print_info()
 {
   if (exists())
   {
-    std::cout << path << " exists. To do: print info." << std::endl;
+    std::cout << folder_name() << " exists. To do: print info." << std::endl;
   } else {
-    std::cout << path << " doesn't exist yet. Use --create to create it." << std::endl;
+    std::cout << folder_name() << " doesn't exist yet. Use --create to create it." << std::endl;
   }
+}
+
+std::string Folder::folder_name()
+{
+  return (path.filename().string());
+}
+
+Note Folder::get_note(std::string note_name)
+{
+  return Note(path / note_name);
 }

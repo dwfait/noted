@@ -3,6 +3,7 @@
 
 #include <stdexcept>
 #include <boost/filesystem.hpp>
+#include "note.h"
 
 namespace fs = boost::filesystem;
 
@@ -18,6 +19,10 @@ class Folder
     void destroy();
 
     void print_info();
+
+    std::string folder_name();
+
+    Note get_note(std::string note_name);
 
   private:
     fs::path path;

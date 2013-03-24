@@ -12,6 +12,10 @@ class NoteCommand : public Command
 
   protected:
     virtual void setup_options();
+
+  private:
+    std::string get_folder_name(std::string note_path);
+    std::string get_note_name(std::string note_path);
 };
 
 #endif
