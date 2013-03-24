@@ -12,5 +12,8 @@ obj/%.o: src/%.cpp
 	mkdir -p obj
 	$(GXX) $(CC_FLAGS) -c -o $@ $<
 
+install:
+	cp bin/noted /usr/local/bin
+
 clean:
 	rm -f obj/*.o bin/*
