@@ -47,7 +47,17 @@ void Folder::print_info()
 {
   if (exists())
   {
-    std::cout << folder_name() << " exists. To do: print info." << std::endl;
+    std::cout << "Folder: " << folder_name() << std::endl;
+    std::cout << "Notes:" << std::endl;
+
+    fs::directory_iterator it(path), end;
+
+    for(; it != end; it++)
+    {
+      const fs::path& p = *it;
+      std::cout << "\t" <<  p.stem().string() << std::endl;
+    }
+
   } else {
     std::cout << folder_name() << " doesn't exist yet. Use --create to create it." << std::endl;
   }
