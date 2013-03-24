@@ -17,7 +17,7 @@ void FolderCommand::run()
 {
   Repository repo;
 
-  if (vm.count("list"))
+  if (vm.count("list") || additional_parameters.size() == 0)
   {
     repo.print_folder_list();
   }
