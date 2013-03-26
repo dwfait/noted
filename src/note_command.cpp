@@ -42,12 +42,13 @@ void NoteCommand::run()
 
     if (!note.exists())
     {
-      if (additional_parameters.size() != 2)
+      std::string note_title;
+      if (additional_parameters.size() < 2)
       {
-        std::cout << "unknown usage" << std::endl;
-        return;
+        note_title = note_name;
+      } else {
+        note_title = additional_parameters[1];
       }
-      std::string note_title = additional_parameters[1];
       note.create(note_title);
     }
 
