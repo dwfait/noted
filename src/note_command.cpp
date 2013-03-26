@@ -40,8 +40,11 @@ void NoteCommand::run()
     note.print_info();
   } else {
 
-    if (!note.exists())
+    std::string editor_command;
+    if (note.exists())
     {
+      editor_command = "vim ";
+    } else {
       std::string note_title;
       if (additional_parameters.size() < 2)
       {
@@ -50,9 +53,10 @@ void NoteCommand::run()
         note_title = additional_parameters[1];
       }
       note.create(note_title);
+      editor_command = "vim -c \"normal G\" -c \"startinsert\" ";
     }
 
-    std::string run_command("vim "+note.get_path().string());
+    std::string run_command(editor_command+note.get_path().string());
 
 
     system(run_command.c_str());
