@@ -43,4 +43,4 @@ All commands have a --help option for more info.
 
 ## Technical details
 
-It's implemented in C++ with heavy use of useful Boost libraries such as filesystem, program_options, posix_time. It's not C++11 unfortunately, as developing on OSX in C++11 is still a bit of a PITA, but if you want to see some C++11 code, check out some of my other C++ repositories.
+It's implemented in C++ with some Boost libraries such as filesystem, program_options, posix_time.
