@@ -1,8 +1,8 @@
 CPP_FILES := $(wildcard src/*.cpp)
 OBJ_FILES := $(addprefix obj/,$(notdir $(CPP_FILES:.cpp=.o)))
-CC_FLAGS := -Wall -Wextra -pedantic
+CC_FLAGS := -Wall -Wextra -pedantic -std=c++11
 LD_FLAGS := -lboost_program_options-mt -lboost_filesystem-mt -lboost_system-mt
-GXX := g++
+GXX := clang++
 
 bin/noted: $(OBJ_FILES)
 	mkdir -p bin
