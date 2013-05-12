@@ -28,7 +28,14 @@ void NoteCommand::run()
   Folder folder = repo.get_folder(folder_name);
 
   if (!folder.exists())
-    throw NotedException("Folder "+folder_name+" does not exist");
+  {
+    if (vm.count("force"))
+    {
+      folder.create();
+    } else {
+      throw NotedException("Folder "+folder_name+" does not exist");
+    }
+  }
 
 
   Note note = folder.get_note(note_name);
@@ -68,6 +75,7 @@ void NoteCommand::setup_options()
   desc.add_options()
     ("delete,D", "delete the note")
     ("info,i", "view information on this note")
+    ("force,f", "force creation of the folder")
     ("help,h", "produce help message");
 }
 
